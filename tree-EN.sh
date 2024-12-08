@@ -33,7 +33,7 @@ new_year=$(date +'%Y')
 let new_year++
 tput setaf 1; tput bold
 tput cup $lin $((c - 6)); echo MERRY CHRISTMAS
-tput cup $((lin + 1)) $((c - 10)); echo And lots of Things with U in $new_year
+tput cup $((lin + 1)) $((c - 12)); echo More THINGS With YOU in $new_year
 let c++
 k=1
 
@@ -56,9 +56,18 @@ while true; do
         line[$k$i]=$li
         column[$k$i]=$co
         color=$(((color+1)%8))
+	# Flashing text
+        ak=-8
+        for l in T H I N G S
+        do
+            tput cup $((lin+1)) $((c+ak))
+            echo $l
+            let ak++
+            sleep 0.01
+        done
         # Flashing text
-        sh=1
-        for l in C O D E
+        sh=4
+        for l in Y O U
         do
             tput cup $((lin+1)) $((c+sh))
             echo $l
